@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  RootViewController.h
 //  TicTacToe
 //
 //  Created by Sherrie Jones on 3/12/15.
