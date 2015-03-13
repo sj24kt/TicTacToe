@@ -20,10 +20,17 @@
 @property (strong, nonatomic) IBOutlet UILabel *labelEight;
 @property (strong, nonatomic) IBOutlet UILabel *labelNine;
 @property (strong, nonatomic) IBOutlet UILabel *whichPlayerLabel;
-@property CGPoint originalCenter;
-@property NSArray *labels;
+@property (weak, nonatomic) IBOutlet UILabel *countDownLabel;
 
 @property (strong, nonatomic) NSMutableArray *labelArray;
+
+@property CGPoint originalCenter;
+@property NSArray *labels;
+@property int countdown;
+@property BOOL canMoveWhichPlayer;
+@property BOOL gameStart;
+@property BOOL playersTurn;
+
 @end
 
 @implementation RootViewController
@@ -32,11 +39,30 @@
     [super viewDidLoad];
 
     [self presetLabelValues];
+
     // find original center point location for whichPlayerLabel
     self.originalCenter = self.whichPlayerLabel.center;
 
+    [self startNewGame];
 }
 
+// figure out if I touched a specific label
+- (UILabel *)findLabelUsingPoint:(CGPoint)point {
+
+    // loop through all grid labelsy in arra
+    for (UILabel *labelName in self.labels) {
+
+        // check if point is inside label frame and return label position
+        if (CGRectContainsPoint(labelName.frame, point)) {
+            return labelName;
+        }
+    }
+    // otherwise, no label was found
+    return nil;
+    
+}
+
+// find the specific label that was tapped
 - (IBAction)onLabelTapped:(UITapGestureRecognizer *)gestureRecognizer {
     // get tap location in view
     CGPoint point = [gestureRecognizer locationInView:self.view];
@@ -44,27 +70,40 @@
     // check if label on the view was tapped - calls method
     UILabel *labelName = [self findLabelUsingPoint:point];
 
+    // if label is empty update turn
     if (labelName != nil && [labelName.text isEqualToString:@""]) {
         //[self updateTurn:labelName];
     }
 }
 
-- (UILabel *)findLabelUsingPoint:(CGPoint)point {
-
-    // loop through all grid labels
-    for (UILabel *labelName in self.labels) {
-        // check if point is inside tile frame and return tile label position
-        if (CGRectContainsPoint(labelName.frame, point)) {
-            return labelName;
-        }
-    }
-    // otherwise, no label was found
-    return nil;
-
+// set label's text to X or O depending on current player
+- (void) updateTurn:(UILabel *)label {
+    self.canMoveWhichPlayer = NO;
 }
 
-
 # pragma mark - Helper methods
+
+-(void)startNewGame {
+
+    // set all nine tiles to empty with blank labels & backgroundColor to gray
+    for (UILabel *labelName in self.labels) {
+        labelName.text = @"";
+        labelName.backgroundColor = [UIColor whiteColor];
+        labelName.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        labelName.layer.borderWidth = 2.0;
+    }
+
+    // always start a game with Player X
+    [self setupPlayerX];
+}
+
+- (void)setupPlayerX {
+    self.playersTurn = YES;
+    self.whichPlayerLabel.hidden = NO;
+    self.whichPlayerLabel.text = @"X";
+    self.whichPlayerLabel.backgroundColor = [UIColor whiteColor];
+    [self.whichPlayerLabel setTextColor:[UIColor blueColor]];
+}
 
 - (void)presetLabelValues {
 

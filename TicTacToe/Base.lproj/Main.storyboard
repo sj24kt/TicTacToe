@@ -26,7 +26,7 @@
                                     </constraint>
                                     <constraint firstAttribute="height" constant="22" id="n5c-gh-hLd"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -48,7 +48,7 @@
                                     <constraint firstAttribute="height" constant="50" id="tiY-5l-FEQ"/>
                                     <constraint firstAttribute="width" constant="50" id="ybQ-B1-tPx"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -70,7 +70,7 @@
                                     <constraint firstAttribute="width" constant="50" id="fPt-47-L8T"/>
                                     <constraint firstAttribute="height" constant="50" id="iDB-FX-YoC"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -92,7 +92,7 @@
                                     <constraint firstAttribute="width" constant="50" id="JCg-mo-6ex"/>
                                     <constraint firstAttribute="height" constant="50" id="mUe-B7-qcE"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -115,7 +115,7 @@
                                     <constraint firstAttribute="width" constant="50" id="T36-YX-UZ7"/>
                                     <constraint firstAttribute="height" constant="50" id="dwF-fL-FtJ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -141,7 +141,7 @@
                                     <constraint firstAttribute="width" constant="50" id="dNR-D8-eAE"/>
                                     <constraint firstAttribute="width" constant="50" id="x9U-hp-FaZ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -167,7 +167,7 @@
                                     <constraint firstAttribute="width" constant="50" id="MtU-Wb-jkX"/>
                                     <constraint firstAttribute="height" constant="50" id="ah0-t5-nJh"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -189,7 +189,7 @@
                                     <constraint firstAttribute="height" constant="50" id="QVt-pO-PZc"/>
                                     <constraint firstAttribute="width" constant="50" id="aha-tU-j2M"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -211,7 +211,7 @@
                                     <constraint firstAttribute="height" constant="50" id="Vfe-dB-r1x"/>
                                     <constraint firstAttribute="width" constant="50" id="glQ-TL-3uh"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -233,7 +233,7 @@
                                     <constraint firstAttribute="height" constant="50" id="hFO-On-U0D"/>
                                     <constraint firstAttribute="width" constant="50" id="n5m-RC-ufw"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -255,7 +255,7 @@
                                     <constraint firstAttribute="width" constant="50" id="ehb-qP-zY0"/>
                                     <constraint firstAttribute="height" constant="50" id="gSg-fR-2Z0"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -424,6 +424,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Help!" id="Tar-4U-rth"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="countDownLabel" destination="YVJ-pn-KjE" id="s44-lv-cYQ"/>
                         <outlet property="labelEight" destination="Fy3-JV-2pP" id="Opx-a7-aD2"/>
                         <outlet property="labelFive" destination="FOP-1X-Han" id="V6I-Ha-iuv"/>
                         <outlet property="labelFour" destination="YNE-OR-3Lm" id="ckf-7s-NXT"/>
