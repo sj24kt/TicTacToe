@@ -25,6 +25,7 @@
 @property (strong, nonatomic) NSMutableArray *labelArray;
 
 @property CGPoint originalCenter;
+@property UIColor *originalBackgroundColor;
 @property NSArray *labels;
 @property int countdown;
 @property BOOL canMoveWhichPlayer;
@@ -38,18 +39,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self presetLabelValues];
+    // change navBar text & background color & init
+    self.navigationController.navigationBar.barTintColor = [UIColor cyanColor];
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor blueColor]};
+
+    [self presetGridLabelValues];
+
+    // create labels array
+    self.labels = [[NSArray alloc] initWithObjects:self.labelOne, self.labelTwo, self.labelThree, self.labelFour, self.labelFive, self.labelSix, self.labelSeven, self.labelEight, self.labelNine, nil ];
 
     // find original center point location for whichPlayerLabel
     self.originalCenter = self.whichPlayerLabel.center;
 
+    self.gameStart = YES;
     [self startNewGame];
 }
+
+# pragma mark - taps, touches, drags and locations
 
 // figure out if I touched a specific label
 - (UILabel *)findLabelUsingPoint:(CGPoint)point {
 
-    // loop through all grid labelsy in arra
+    // loop through all grid labels in array
     for (UILabel *labelName in self.labels) {
 
         // check if point is inside label frame and return label position
@@ -59,7 +70,6 @@
     }
     // otherwise, no label was found
     return nil;
-    
 }
 
 // find the specific label that was tapped
@@ -69,16 +79,56 @@
 
     // check if label on the view was tapped - calls method
     UILabel *labelName = [self findLabelUsingPoint:point];
+    labelName.center = point;
 
     // if label is empty update turn
     if (labelName != nil && [labelName.text isEqualToString:@""]) {
-        //[self updateTurn:labelName];
+        [self updateTurn:labelName];
     }
 }
 
-// set label's text to X or O depending on current player
-- (void) updateTurn:(UILabel *)label {
-    self.canMoveWhichPlayer = NO;
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    // finds label touched
+    CGPoint locationPoint = [[touches anyObject] locationInView:self.view];
+
+    // finds an empty label the whichPlayer can move, else label is taken already
+    if (CGRectContainsPoint(self.whichPlayerLabel.frame, locationPoint)) {
+        self.canMoveWhichPlayer = YES;
+    } else {
+        self.canMoveWhichPlayer = NO;
+    }
+}
+
+// onDrag whichPlayerLabel learns its point x,y location
+- (IBAction)onDrag:(UIPanGestureRecognizer *)drag {
+
+    CGPoint point = [drag locationInView:self.view];
+
+    // check if the PlayerLabel's moves into a label's frame
+    if (self.canMoveWhichPlayer) {
+        self.whichPlayerLabel.center = point;
+
+        // check if drag stopped inside another label and dropped current Player
+        if (drag.state == UIGestureRecognizerStateEnded) {
+            UILabel *label = [self findLabelUsingPoint:point];
+
+            if (label != nil && [label.text isEqualToString:@""]) {
+                self.canMoveWhichPlayer = NO;
+                [self updateTurn:label];
+            }
+        }
+    }
+
+    // if movement ended then move back to originalCenter
+    if (drag.state == UIGestureRecognizerStateEnded) {
+        [UIView animateWithDuration:1.0f animations:^{
+            self.whichPlayerLabel.center = self.originalCenter;
+        } completion:^(BOOL finished) {
+            if (finished) {
+                self.whichPlayerLabel.backgroundColor = self.originalBackgroundColor;
+            }
+        }];
+    }
 }
 
 # pragma mark - Helper methods
@@ -88,24 +138,81 @@
     // set all nine tiles to empty with blank labels & backgroundColor to gray
     for (UILabel *labelName in self.labels) {
         labelName.text = @"";
-        labelName.backgroundColor = [UIColor whiteColor];
+        labelName.backgroundColor = self.originalBackgroundColor;
         labelName.layer.borderColor = [UIColor lightGrayColor].CGColor;
         labelName.layer.borderWidth = 2.0;
     }
 
     // always start a game with Player X
     [self setupPlayerX];
+
+    // can't move until touched
+    self.canMoveWhichPlayer = NO;
 }
 
+// resets Player X values
 - (void)setupPlayerX {
     self.playersTurn = YES;
     self.whichPlayerLabel.hidden = NO;
     self.whichPlayerLabel.text = @"X";
-    self.whichPlayerLabel.backgroundColor = [UIColor whiteColor];
+    self.whichPlayerLabel.backgroundColor = self.originalBackgroundColor;
+    self.whichPlayerLabel.layer.borderColor = [UIColor lightGrayColor].CGColor;
     [self.whichPlayerLabel setTextColor:[UIColor blueColor]];
 }
 
-- (void)presetLabelValues {
+// set label's text to X or O depending on current player
+- (void) updateTurn:(UILabel *)label {
+    self.canMoveWhichPlayer = NO;
+
+    if (self.playersTurn) {
+        [self playerXTurn:label];
+
+    } else {
+        // only update label if PlayerO didn't forfeit turn
+        if (label != nil) {
+            label.text = @"O";
+            [label setTextColor:[UIColor redColor]];
+        }
+
+        // switch turns - PlayerLabel becomes blue "X"
+        self.whichPlayerLabel.text = @"X";
+        [self.whichPlayerLabel setTextColor:[UIColor blueColor]];
+
+        // check if someone wins
+        //[self checkWins];
+    }
+}
+
+- (void)playerXTurn:(UILabel *)label {
+
+    // only update label if PlayerX didn't forfeit turn
+    if (label != nil) {
+        label.text = @"X";
+        [label setTextColor:[UIColor blueColor]];
+    }
+
+    // switch turns - PlayerLabel becomes red "O"
+    self.whichPlayerLabel.text = @"O";
+    [self.whichPlayerLabel setTextColor:[UIColor redColor]];
+
+    // check if someone wins
+    //[self checkWins];
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+- (void)presetGridLabelValues {
 
     self.labelOne.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.labelOne.layer.backgroundColor = [UIColor whiteColor].CGColor;

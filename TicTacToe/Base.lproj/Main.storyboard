@@ -418,6 +418,7 @@
                         </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="gJn-Vs-dt7" appends="YES" id="Z4L-YZ-vp7"/>
+                            <outletCollection property="gestureRecognizers" destination="RUA-YL-gYB" appends="YES" id="x1j-iP-frM"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="ULN-wP-Gl0">
@@ -443,6 +444,11 @@
                         <action selector="onLabelTapped:" destination="vXZ-lx-hvc" id="jbs-Do-zNz"/>
                     </connections>
                 </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="RUA-YL-gYB">
+                    <connections>
+                        <action selector="onDrag:" destination="vXZ-lx-hvc" id="iAT-GC-E4T"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1009.5" y="485"/>
         </scene>
