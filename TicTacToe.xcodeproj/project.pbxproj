@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		187445591AB63382005033A5 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187445581AB63382005033A5 /* RootViewController.m */; };
 		188710071AB2214A00668ED6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 188710061AB2214A00668ED6 /* main.m */; };
 		1887100A1AB2214A00668ED6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 188710091AB2214A00668ED6 /* AppDelegate.m */; };
-		1887100D1AB2214A00668ED6 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887100C1AB2214A00668ED6 /* RootViewController.m */; };
 		188710101AB2214A00668ED6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1887100E1AB2214A00668ED6 /* Main.storyboard */; };
 		188710121AB2214A00668ED6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 188710111AB2214A00668ED6 /* Images.xcassets */; };
 		188710151AB2214B00668ED6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188710131AB2214B00668ED6 /* LaunchScreen.xib */; };
@@ -27,13 +27,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		187445571AB63382005033A5 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		187445581AB63382005033A5 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		188710011AB2214A00668ED6 /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		188710051AB2214A00668ED6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		188710061AB2214A00668ED6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		188710081AB2214A00668ED6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		188710091AB2214A00668ED6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1887100B1AB2214A00668ED6 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		1887100C1AB2214A00668ED6 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		1887100F1AB2214A00668ED6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		188710111AB2214A00668ED6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		188710141AB2214B00668ED6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -83,8 +83,8 @@
 			children = (
 				188710081AB2214A00668ED6 /* AppDelegate.h */,
 				188710091AB2214A00668ED6 /* AppDelegate.m */,
-				1887100B1AB2214A00668ED6 /* RootViewController.h */,
-				1887100C1AB2214A00668ED6 /* RootViewController.m */,
+				187445571AB63382005033A5 /* RootViewController.h */,
+				187445581AB63382005033A5 /* RootViewController.m */,
 				1887100E1AB2214A00668ED6 /* Main.storyboard */,
 				188710111AB2214A00668ED6 /* Images.xcassets */,
 				188710131AB2214B00668ED6 /* LaunchScreen.xib */,
@@ -219,9 +219,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1887100D1AB2214A00668ED6 /* RootViewController.m in Sources */,
 				1887100A1AB2214A00668ED6 /* AppDelegate.m in Sources */,
 				188710071AB2214A00668ED6 /* main.m in Sources */,
+				187445591AB63382005033A5 /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +412,7 @@
 				188710261AB2214B00668ED6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		188710271AB2214B00668ED6 /* Build configuration list for PBXNativeTarget "TicTacToeTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +421,7 @@
 				188710291AB2214B00668ED6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
